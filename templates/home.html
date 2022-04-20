@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+    THome Page
+{% endblock %}
+{% block content %}
+    {{ super () }}
+    {% include  "include_file.html" %}
+    <h1>hello {{name2}}you are in home page</h1>
+
+    <h1>Database Results!</h1>
+    {% for member in results%}
+    <h2>ID : {{member.id}} Name : {{member.name}} location : {{member.location}}</h2>
+    {%endfor%}
+
+    {% if display %}
+    <h2>this is being displayed</h2>
+    {% else %}
+    <h2>this is not being displayed</h2>
+    {% endif %}
+
+    {% for x in mylist %}
+    <h3>{{ x }}</h3>
+    {% endfor %}
+
+    {% for x in mylist_of_dict %}
+    <h4>{{ x.name }}</h4>
+    {% endfor %}
+
+    <img src ="{{ url_for('static', filename='images/FC-Porto-v-Liverpool-FC-.jpg')}}">
+    {% endblock %}
